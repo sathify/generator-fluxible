@@ -12,7 +12,7 @@ window.React = React; // For chrome dev tool support
 
 // expose debug object to browser, so that it can be enabled/disabled from browser:
 // https://github.com/visionmedia/debug#browser-support
-window.debug = debug;
+window.fluxibleDebug = debug;
 
 debugClient('rehydrating app');
 
