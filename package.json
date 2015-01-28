@@ -12,6 +12,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
+    "cover": "istanbul cover --dir artifacts -- _mocha test --recursive --reporter spec",
     "lint": "jshint app/ test/",
     "style": "jscs .",
     "test": "mocha test --recursive --reporter=spec"
@@ -36,6 +37,7 @@
     "yosay": "~0.3.0"
   },
   "devDependencies": {
+    "coveralls": "^2.11.1",
     "jscs": "^1.9.0",
     "jshint": "^2.5.11",
     "mocha": "^2.1.0",
