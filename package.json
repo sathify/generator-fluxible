@@ -1,0 +1,47 @@
+{
+  "name": "generator-fluxible",
+  "version": "1.0.0",
+  "description": "Yeoman generator for Fluxible",
+  "main": "app/index.js",
+  "repository": "yahoo/generator-fluxible",
+  "author": {
+    "name": "Seth Bertalotto",
+    "email": "sbertal@yahoo-inc.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "lint": "jshint app/ test/",
+    "style": "jscs .",
+    "test": "mocha test --recursive --reporter=spec"
+  },
+  "precommit": [
+    "style",
+    "lint",
+    "test"
+  ],
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "flux",
+    "react"
+  ],
+  "dependencies": {
+    "chalk": "~0.5.0",
+    "underscore.string": "^3.0.2",
+    "yeoman-generator": "~0.18.0",
+    "yosay": "~0.3.0"
+  },
+  "devDependencies": {
+    "jscs": "^1.9.0",
+    "jshint": "^2.5.11",
+    "mocha": "^2.1.0",
+    "precommit-hook": "^1.0.7"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  }
+}
