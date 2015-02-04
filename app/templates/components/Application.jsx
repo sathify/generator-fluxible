@@ -5,13 +5,10 @@ var Home = require('./Home.jsx');
 var About = require('./About.jsx');
 var ApplicationStore = require('../stores/ApplicationStore');
 var RouterMixin = require('flux-router-component').RouterMixin;
-var StoreMixin = require('fluxible').StoreMixin;
+var FluxibleMixin = require('fluxible').Mixin;
 
 var Application = React.createClass({
-    propTypes: {
-        context: React.PropTypes.object.isRequired
-    },
-    mixins: [RouterMixin, StoreMixin],
+    mixins: [RouterMixin, FluxibleMixin],
     statics: {
         storeListeners: [ApplicationStore]
     },
@@ -42,7 +39,7 @@ var Application = React.createClass({
         }
         return (
             <div>
-                <Nav selected={this.state.currentPageName} links={this.state.pages} context={this.props.context}/>
+                <Nav selected={this.state.currentPageName} links={this.state.pages} />
                 {output}
             </div>
         );

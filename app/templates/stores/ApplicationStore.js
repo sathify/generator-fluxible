@@ -5,7 +5,7 @@ var routesConfig = require('../configs/routes');
 var ApplicationStore = createStore({
     storeName: 'ApplicationStore',
     handlers: {
-        'CHANGE_ROUTE_SUCCESS' : 'handleNavigate'
+        'CHANGE_ROUTE_SUCCESS': 'handleNavigate'
     },
     initialize: function () {
         this.currentPageName = null;

@@ -26,7 +26,7 @@ module.exports = yeoman.generators.Base.extend({
             name: 'name',
             default: this.appname,
             message: 'Whats the name of your project?',
-            validate : function(input) {
+            validate: function(input) {
                 return !!input;
             }
         }];
@@ -41,10 +41,10 @@ module.exports = yeoman.generators.Base.extend({
 
     writing: {
         config: function () {
-          this.template('_editorconfig', '.editorconfig', this.context);
-          this.template('_gitignore', '.gitignore', this.context);
-          this.template('_jshintrc', '.jshintrc', this.context);
-          this.template('_package.json', 'package.json', this.context);
+            this.template('_editorconfig', '.editorconfig', this.context);
+            this.template('_gitignore', '.gitignore', this.context);
+            this.template('_jshintrc', '.jshintrc', this.context);
+            this.template('_package.json', 'package.json', this.context);
         },
 
         projectfiles: function () {

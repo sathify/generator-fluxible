@@ -42,17 +42,16 @@ server.use(function (req, res, next) {
 
         debug('Rendering Application component into html');
         var appComponent = app.getAppComponent();
-        var html = React.renderToStaticMarkup(htmlComponent({
-            state: exposed,
-            context: context.getComponentContext(),
-            markup: React.renderToString(appComponent({
-                context: context.getComponentContext()
-            }))
-        }));
+        React.withContext(context.getComponentContext(), function () {
+            var html = React.renderToStaticMarkup(htmlComponent({
+                state: exposed,
+                markup: React.renderToString(appComponent())
+            }));
 
-        debug('Sending markup');
-        res.write('<!DOCTYPE html>' + html);
-        res.end();
+            debug('Sending markup');
+            res.write('<!DOCTYPE html>' + html);
+            res.end();
+        });
     });
 });
 
