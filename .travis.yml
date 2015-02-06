@@ -1,6 +1,12 @@
 language: node_js
+matrix:
+  allow_failures:
+    - node_js: "0.13"
 node_js:
-  - '0.10'
+  - "iojs"
+  - "0.13"
+  - "0.12"
+  - "0.10"
 before_install:
   - currentfolder=${PWD##*/}
   - if [ "$currentfolder" != 'generator-fluxible' ]; then cd .. && eval "mv $currentfolder generator-fluxible" && cd generator-fluxible; fi
