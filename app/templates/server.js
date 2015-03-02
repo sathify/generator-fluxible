@@ -7,7 +7,7 @@
  * and the application is rendered via React.
  */
 
-require('node-jsx').install({ extension: '.jsx' });
+require('babel/register');
 
 var express = require('express');
 var serialize = require('serialize-javascript');
