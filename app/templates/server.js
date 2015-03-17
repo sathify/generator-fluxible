@@ -48,6 +48,7 @@ server.use(function (req, res, next) {
         }));
 
         debug('Sending markup');
+        res.type('html');
         res.write('<!DOCTYPE html>' + html);
         res.end();
     });
