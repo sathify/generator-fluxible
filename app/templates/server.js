@@ -1,33 +1,33 @@
-'use strict';
-
 /**
  * This leverages Express to create and run the http server.
- * A fluxible context is created and executes the navigateAction
+ * A Fluxible context is created and executes the navigateAction
  * based on the URL. Once completed, the store state is dehydrated
  * and the application is rendered via React.
  */
 
-require('babel/register');
+import express from 'express';
+import path from 'path';
+import serialize from 'serialize-javascript';
+import {navigateAction} from 'flux-router-component';
+import debugLib from 'debug';
+import React from 'react';
+import app from './app';
+import HtmlComponent from './components/Html';
+const htmlComponent = React.createFactory(HtmlComponent);
 
-var express = require('express');
-var serialize = require('serialize-javascript');
-var navigateAction = require('flux-router-component').navigateAction;
-var debug = require('debug')('<%= name %>');
-var React = require('react');
-var app = require('./app');
-var htmlComponent = React.createFactory(require('./components/Html.jsx'));
+const debug = debugLib('<%= name %>');
 
-var server = express();
+const server = express();
 server.set('state namespace', 'App');
-server.use('/public', express.static(__dirname + '/build'));
+server.use('/public', express.static(path.join(__dirname, '/build')));
 
-server.use(function (req, res, next) {
-    var context = app.createContext();
+server.use((req, res, next) => {
+    let context = app.createContext();
 
     debug('Executing navigate action');
     context.getActionContext().executeAction(navigateAction, {
         url: req.url
-    }, function (err) {
+    }, (err) => {
         if (err) {
             if (err.status && err.status === 404) {
                 next();
@@ -38,10 +38,10 @@ server.use(function (req, res, next) {
         }
 
         debug('Exposing context state');
-        var exposed = 'window.App=' + serialize(app.dehydrate(context)) + ';';
+        const exposed = 'window.App=' + serialize(app.dehydrate(context)) + ';';
 
         debug('Rendering Application component into html');
-        var html = React.renderToStaticMarkup(htmlComponent({
+        const html = React.renderToStaticMarkup(htmlComponent({
             context: context.getComponentContext(),
             state: exposed,
             markup: React.renderToString(context.createElement())
@@ -54,6 +54,8 @@ server.use(function (req, res, next) {
     });
 });
 
-var port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 server.listen(port);
 console.log('Listening on port ' + port);
+
+export default server;

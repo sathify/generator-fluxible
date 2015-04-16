@@ -1,49 +1,44 @@
-'use strict';
-var createStore = require('fluxible/addons').createStore;
-var routesConfig = require('../configs/routes');
+import BaseStore from 'fluxible/addons/BaseStore';
+import routesConfig from '../configs/routes';
 
-var ApplicationStore = createStore({
-    storeName: 'ApplicationStore',
-    handlers: {
-        'UPDATE_PAGE_TITLE': 'handlePageTitle',
-        'CHANGE_ROUTE_SUCCESS': 'handleNavigate'
-    },
-    initialize: function () {
+class ApplicationStore extends BaseStore {
+    constructor(dispatcher) {
+        super(dispatcher);
         this.currentPageName = null;
         this.currentPage = null;
         this.currentRoute = null;
         this.pages = routesConfig;
         this.pageTitle = '';
-    },
-    handlePageTitle: function (data) {
+    }
+    handlePageTitle(data) {
         this.pageTitle = data.pageTitle;
-    },
-    handleNavigate: function (route) {
+    }
+    handleNavigate(route) {
         if (this.currentRoute && (this.currentRoute.url === route.url)) {
             return;
         }
 
-        var pageName = route.config.page;
-        var page = this.pages[pageName];
+        const pageName = route.config.page;
+        const page = this.pages[pageName];
 
         this.currentPageName = pageName;
         this.currentPage = page;
         this.currentRoute = route;
         this.emitChange();
-    },
-    getCurrentPageName: function () {
+    }
+    getCurrentPageName() {
         return this.currentPageName;
-    },
-    getPageTitle: function () {
+    }
+    getPageTitle() {
         return this.pageTitle;
-    },
-    getCurrentRoute: function () {
+    }
+    getCurrentRoute() {
         return this.currentRoute;
-    },
-    getPages: function () {
+    }
+    getPages() {
         return this.pages;
-    },
-    dehydrate: function () {
+    }
+    dehydrate() {
         return {
             currentPageName: this.currentPageName,
             currentPage: this.currentPage,
@@ -51,14 +46,20 @@ var ApplicationStore = createStore({
             route: this.currentRoute,
             pageTitle: this.pageTitle
         };
-    },
-    rehydrate: function (state) {
+    }
+    rehydrate(state) {
         this.currentPageName = state.currentPageName;
         this.currentPage = state.currentPage;
         this.pages = state.pages;
         this.currentRoute = state.route;
         this.pageTitle = state.pageTitle;
     }
-});
+}
 
-module.exports = ApplicationStore;
+ApplicationStore.storeName = 'ApplicationStore';
+ApplicationStore.handlers = {
+    'UPDATE_PAGE_TITLE': 'handlePageTitle',
+    'CHANGE_ROUTE_SUCCESS': 'handleNavigate'
+};
+
+export default ApplicationStore;
