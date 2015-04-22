@@ -43,7 +43,7 @@ module.exports = yeoman.generators.Base.extend({
         config: function () {
             this.template('_editorconfig', '.editorconfig', this.context);
             this.template('_gitignore', '.gitignore', this.context);
-            this.template('_jshintrc', '.jshintrc', this.context);
+            this.template('_eslintrc', '.eslintrc', this.context);
             this.template('_package.json', 'package.json', this.context);
         },
 
@@ -52,6 +52,8 @@ module.exports = yeoman.generators.Base.extend({
             this.template('client.js', 'client.js', this.context);
             this.template('Gruntfile.js', 'Gruntfile.js', this.context);
             this.template('server.js', 'server.js', this.context);
+            this.template('start.js', 'start.js', this.context);
+            this.template('webpack.config.js', 'webpack.config.js', this.context);
             this.directory('actions', 'actions', this.context);
             this.directory('components', 'components', this.context);
             this.directory('configs', 'configs', this.context);

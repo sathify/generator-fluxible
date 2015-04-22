@@ -1,12 +1,11 @@
 /*global document, window */
 
-'use strict';
+import React from 'react';
+import debug from 'debug';
+import app from './app';
 
-var React = require('react');
-var debug = require('debug');
-var debugClient = debug('<%= name %>');
-var app = require('./app');
-var dehydratedState = window.App; // Sent from the server
+const debugClient = debug('<%= name %>');
+const dehydratedState = window.App; // Sent from the server
 
 window.React = React; // For chrome dev tool support
 
@@ -22,7 +21,7 @@ app.rehydrate(dehydratedState, function (err, context) {
         throw err;
     }
     window.context = context;
-    var mountNode = document.getElementById('app');
+    const mountNode = document.getElementById('app');
 
     debugClient('React Rendering');
     React.render(context.createElement(), mountNode, function () {

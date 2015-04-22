@@ -1,20 +1,20 @@
-'use strict';
-
-var React = require('react');
-var Fluxible = require('fluxible');
-var routrPlugin = require('fluxible-plugin-routr');
+import Fluxible from 'fluxible';
+import routrPlugin from 'fluxible-plugin-routr';
+import Application from './components/Application';
+import routes from './configs/routes';
+import ApplicationStore from './stores/ApplicationStore';
 
 // create new fluxible instance
-var app = new Fluxible({
-    component: React.createFactory(require('./components/Application.jsx'))
+const app = new Fluxible({
+    component: Application
 });
 
 // add routes to the routr plugin
 app.plug(routrPlugin({
-    routes: require('./configs/routes')
+    routes: routes
 }));
 
 // register stores
-app.registerStore(require('./stores/ApplicationStore'));
+app.registerStore(ApplicationStore);
 
 module.exports = app;

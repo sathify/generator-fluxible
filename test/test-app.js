@@ -2,8 +2,7 @@
  * Copyright 2015, Yahoo! Inc.
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
-
-'use strict';
+/*globals describe,before,it*/
 
 var path = require('path');
 var assert = require('yeoman-generator').assert;
@@ -23,9 +22,9 @@ describe('fluxible:app', function () {
         assert.file([
             'package.json',
             '.editorconfig',
-            '.jshintrc',
+            '.eslintrc',
             'app.js',
-            'components/Application.jsx'
+            'components/Application.js'
         ]);
     });
 });

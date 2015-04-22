@@ -2,18 +2,12 @@
 var React = require('react');
 var NavLink = require('flux-router-component').NavLink;
 
-var Nav = React.createClass({
-    getDefaultProps: function () {
-        return {
-            selected: 'home',
-            links: {}
-        };
-    },
-    render: function() {
-        var selected = this.props.selected;
-        var links = this.props.links;
+class Nav extends React.Component {
+    render() {
+        const selected = this.props.selected;
+        const links = this.props.links;
 
-        var linkHTML = Object.keys(links).map(function (name) {
+        const linkHTML = Object.keys(links).map(function (name) {
             var className = '';
             var link = links[name];
 
@@ -34,6 +28,11 @@ var Nav = React.createClass({
             </ul>
         );
     }
-});
+}
+
+Nav.defaultProps = {
+    selected: 'home',
+    links: {}
+};
 
 module.exports = Nav;
