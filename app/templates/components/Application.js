@@ -9,7 +9,7 @@ import {RouterMixin} from 'flux-router-component';
 import provideContext from 'fluxible/addons/provideContext';
 import connectToStores from 'fluxible/addons/connectToStores';
 
-// @TODO Upgrade to ES6 class when RouterMixin is replaces
+// @TODO Upgrade to ES6 class when RouterMixin is replaced
 var Application = React.createClass({
     mixins: [RouterMixin],
     render: function () {
