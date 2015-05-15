@@ -24,6 +24,8 @@ Finally, initiate the generator:
 yo fluxible
 ```
 
+Then run `gulp` or `grunt`, depending on your choice. Browse to `http://localhost:3000` to see a very simple Fluxible site with server-side rendering and client-side navigation.
+
 ## Debugging
 
 Fluxible uses [debug](https://www.npmjs.com/package/debug) to expose debugging information on the server and client. 
