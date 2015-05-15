@@ -29,12 +29,19 @@ module.exports = yeoman.generators.Base.extend({
             validate: function(input) {
                 return !!input;
             }
+        },
+        {
+            type: 'list',
+            name: 'buildSystem',
+            default: 0,
+            message: 'Which build system do you want to use?',
+            choices: ['Grunt', 'Gulp']
         }];
 
         this.prompt(prompts, function (props) {
             this.displayName = props.name;
             this.name = str.slugify(props.name);
-
+            this.buildSystem = str.slugify(props.buildSystem);
             done();
         }.bind(this));
     },
@@ -44,13 +51,21 @@ module.exports = yeoman.generators.Base.extend({
             this.template('_editorconfig', '.editorconfig', this.context);
             this.template('_gitignore', '.gitignore', this.context);
             this.template('_eslintrc', '.eslintrc', this.context);
-            this.template('_package.json', 'package.json', this.context);
+            if(this.buildSystem === 'grunt'){
+                this.template('_package_grunt.json', 'package.json', this.context);
+            } else if (this.buildSystem === 'gulp'){
+                this.template('_package_gulp.json', 'package.json', this.context);
+            }
         },
 
         projectfiles: function () {
             this.template('app.js', 'app.js', this.context);
             this.template('client.js', 'client.js', this.context);
-            this.template('Gruntfile.js', 'Gruntfile.js', this.context);
+            if(this.buildSystem === 'grunt'){
+                this.template('Gruntfile.js', 'Gruntfile.js', this.context);
+            } else if (this.buildSystem === 'gulp'){
+                this.template('gulpfile.js', 'gulpfile.js', this.context);
+            }
             this.template('server.js', 'server.js', this.context);
             this.template('start.js', 'start.js', this.context);
             this.template('webpack.config.js', 'webpack.config.js', this.context);
