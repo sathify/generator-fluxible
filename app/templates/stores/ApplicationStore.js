@@ -11,6 +11,7 @@ class ApplicationStore extends BaseStore {
     }
     handlePageTitle(data) {
         this.pageTitle = data.pageTitle;
+        this.emitChange();
     }
     getCurrentPageName() {
         return this.currentPageName;
