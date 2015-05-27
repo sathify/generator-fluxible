@@ -15,7 +15,7 @@ describe('fluxible:app', function () {
             helpers.run(path.join(__dirname, '../app'))
                 .inDir(path.join(os.tmpdir(), './temp-test'))
                 .withOptions({ 'skip-install': true })
-                .withPrompt({buildSystem: 'grunt'})
+                .withPrompts({buildSystem: 'grunt'})
                 .on('end', done);
         });
 
@@ -36,7 +36,7 @@ describe('fluxible:app', function () {
             helpers.run(path.join(__dirname, '../app'))
                 .inDir(path.join(os.tmpdir(), './temp-test'))
                 .withOptions({ 'skip-install': true })
-                .withPrompt({buildSystem: 'gulp'})
+                .withPrompts({buildSystem: 'gulp'})
                 .on('end', done);
         });
 
