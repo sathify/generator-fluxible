@@ -29,7 +29,7 @@ server.use((req, res, next) => {
         url: req.url
     }, (err) => {
         if (err) {
-            if (err.status && err.status === 404) {
+            if (err.statusCode && err.statusCode === 404) {
                 next();
             } else {
                 next(err);
