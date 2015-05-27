@@ -4,7 +4,6 @@
 [![Build Status](https://travis-ci.org/yahoo/generator-fluxible.svg?branch=master)](https://travis-ci.org/yahoo/generator-fluxible)
 [![Dependency Status](https://david-dm.org/yahoo/generator-fluxible.svg)](https://david-dm.org/yahoo/generator-fluxible)
 [![devDependency Status](https://david-dm.org/yahoo/generator-fluxible/dev-status.svg)](https://david-dm.org/yahoo/generator-fluxible#info=devDependencies)
-[![Coverage Status](https://coveralls.io/repos/yahoo/generator-fluxible/badge.png?branch=master)](https://coveralls.io/r/yahoo/generator-fluxible?branch=master)
 
 ## Getting Started
 
