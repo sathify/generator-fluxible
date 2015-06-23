@@ -24,6 +24,7 @@ describe('fluxible:app', function () {
                 'package.json',
                 'Gruntfile.js',
                 '.editorconfig',
+                '.babelrc',
                 '.eslintrc',
                 'app.js',
                 'components/Application.js'
@@ -45,6 +46,7 @@ describe('fluxible:app', function () {
                 'package.json',
                 'gulpfile.js',
                 '.editorconfig',
+                '.babelrc',
                 '.eslintrc',
                 'app.js',
                 'components/Application.js'
