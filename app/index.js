@@ -51,6 +51,7 @@ module.exports = yeoman.generators.Base.extend({
             this.template('_editorconfig', '.editorconfig', this.context);
             this.template('_gitignore', '.gitignore', this.context);
             this.template('_eslintrc', '.eslintrc', this.context);
+            this.template('_babelrc', '.babelrc', this.context);
             if(this.buildSystem === 'grunt'){
                 this.template('_package_grunt.json', 'package.json', this.context);
             } else if (this.buildSystem === 'gulp'){
