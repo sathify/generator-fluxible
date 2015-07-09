@@ -37,7 +37,7 @@
   "devDependencies": {
     "babel-eslint": "^3.0.1",
     "coveralls": "^2.11.1",
-    "eslint": "^0.21.2",
+    "eslint": "^0.24.0",
     "mocha": "^2.1.0",
     "pre-commit": "^1.0.7"
   },

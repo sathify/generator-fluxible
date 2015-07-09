@@ -13,6 +13,7 @@ import debugLib from 'debug';
 import React from 'react';
 import app from './app';
 import HtmlComponent from './components/Html';
+import { createElementWithContext } from 'fluxible-addons-react';
 const htmlComponent = React.createFactory(HtmlComponent);
 
 const debug = debugLib('<%= name %>');
@@ -44,7 +45,7 @@ server.use((req, res, next) => {
         const html = React.renderToStaticMarkup(htmlComponent({
             context: context.getComponentContext(),
             state: exposed,
-            markup: React.renderToString(context.createElement())
+            markup: React.renderToString(createElementWithContext(context))
         }));
 
         debug('Sending markup');
