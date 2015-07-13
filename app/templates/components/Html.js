@@ -1,6 +1,5 @@
-'use strict';
-var React = require('react');
-var ApplicationStore = require('../stores/ApplicationStore');
+import React from 'react';
+import ApplicationStore from '../stores/ApplicationStore';
 
 class Html extends React.Component {
     render() {
@@ -22,4 +21,4 @@ class Html extends React.Component {
     }
 }
 
-module.exports = Html;
+export default Html;
