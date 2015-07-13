@@ -1,5 +1,4 @@
-'use strict';
-var React = require('react');
+import React from 'react';
 
 class Home extends React.Component {
     render() {
@@ -12,4 +11,4 @@ class Home extends React.Component {
     }
 }
 
-module.exports = Home;
+export default Home;

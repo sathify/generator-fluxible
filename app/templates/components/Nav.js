@@ -1,5 +1,4 @@
-'use strict';
-var React = require('react');
+import React from 'react';
 import { NavLink } from 'fluxible-router';
 
 class Nav extends React.Component {
@@ -7,7 +6,7 @@ class Nav extends React.Component {
         const selected = this.props.selected;
         const links = this.props.links;
 
-        const linkHTML = Object.keys(links).map(function (name) {
+        const linkHTML = Object.keys(links).map((name) => {
             var className = '';
             var link = links[name];
 
@@ -35,4 +34,4 @@ Nav.defaultProps = {
     links: {}
 };
 
-module.exports = Nav;
+export default Nav;

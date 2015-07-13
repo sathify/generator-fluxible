@@ -2,8 +2,6 @@
 
 import React from 'react';
 import Nav from './Nav';
-import Home from './Home';
-import About from './About';
 import ApplicationStore from '../stores/ApplicationStore';
 import { connectToStores, provideContext } from 'fluxible-addons-react';
 import { handleHistory } from 'fluxible-router';
