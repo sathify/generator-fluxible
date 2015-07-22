@@ -4,7 +4,7 @@
   "private": true,
   "main": "start.js",
   "scripts": {
-    "build": "webpack --config webpack.config.production.js",
+    "build": "webpack & webpack --config webpack.config.production.js",
     "dev": "node webpack-dev-server.js & PORT=3001 nodemon start.js -e js,jsx",
     "lint": "eslint ./*.js ./**/*.js",
     "start": "node start.js"
