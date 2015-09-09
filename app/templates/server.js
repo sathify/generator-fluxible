@@ -7,6 +7,7 @@
 
 import express from 'express';
 import compression from 'compression';
+import bodyParser from 'body-parser';
 import path from 'path';
 import serialize from 'serialize-javascript';
 import {navigateAction} from 'fluxible-router';
@@ -23,6 +24,7 @@ const debug = debugLib('<%= name %>');
 const server = express();
 server.use('/public', express.static(path.join(__dirname, '/build')));
 server.use(compression());
+server.use(bodyParser.json());
 
 server.use((req, res, next) => {
     let context = app.createContext();
